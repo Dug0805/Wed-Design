@@ -1,77 +1,93 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: antiquewhite;
-  margin: 0;
-  padding: 0;
+  background-color: #dedede;
+  padding: 5px;
+  margin: 15px;
+  font-size: 25px;
+  font-family: Arial, sans-serif;
 }
-header {
-  background-color: rgb(192, 214, 207);
-  padding: 10px;
-}
+
 h1 {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 40px;
   text-align: center;
-  margin: 0;
+  font-size: 1.95em;
 }
-div {
-  display: inline-block;
-}
+
 p {
-  background-color: aqua;
+  line-height: 1.6;
 }
-nav {
+
+img {
   width: 100%;
-  background-color: aquamarine;
-  /* display: inline-block; */
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 5px solid blue;
+  border-radius: 20px;
+  display: block;
 }
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
-}
-a {
-  text-decoration: none;
-  margin: 0 10px;
-  color: purple;
-}
-nav li {
-  display: inline;
-  border-bottom: 1px purple;
-}
+
 .grid {
   display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 cột với kích thước bằng nhau */
-    gap: 10px; /* Khoảng cách giữa các hình ảnh */
-    padding: 20px;
-    background-color: rgb(192, 214, 207);
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
-.grid img {
-  width: 100%;
-  height: auto;
+
+figure {
+  margin: 0;
+  text-align: center;
 }
-.flex {
-  display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: rgb(192, 214, 207);
+
+figcaption {
+  font-size: 1em;
+  color: #333;
 }
-.flex img {
-  width: 100%;
-  height: auto;
-  margin: 5px;
+
+/* Tablet View */
+@media (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  .grid figure:last-child {
+    grid-column: span 2;
+  }
 }
-nav img {
-  width: 30%;
-    margin-left: 10px;
+
+/* Desktop View */
+@media (min-width: 992px) {
+  .grid figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+
+  img {
+    border-radius: 0;
+  }
 }
-.current {
-  text-transform: uppercase;
-  background-color: lightgrey;
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+
+  img {
+    background-color: #333;
+    border-color: black;
+  }
+
+  figcaption {
+    color: yellow;
+  }
 }
